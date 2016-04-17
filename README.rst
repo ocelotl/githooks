@@ -10,11 +10,24 @@ For example, to use the ``commit-msg`` hook, copy ``./hooks/commit-msg`` and
 ``./hooks/commit_message.py`` to your local git repo hooks folder located in
 ``.git/hooks`` from your repo root folder.
 
+
 Changelog
 =========
 
+0.2.0 (2016-04-17)
+------------------
+
+New
+~~~
+
+- Add pre-commit hook. [Diego Hurtado]
+
+  A pre-commit hook that runs tox has been added. This hook makes sure
+  that all the tests pass before adding a commit to ensure a fully
+  test-passing git history.
+
 0.1.0 (2016-04-17)
-------------------------
+------------------
 
 New
 ~~~
