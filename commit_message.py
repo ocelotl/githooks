@@ -25,7 +25,7 @@ commit message checking fast.
 from __future__ import unicode_literals, absolute_import
 from __future__ import print_function, division
 
-from re import match
+from re import match, MULTILINE
 
 
 def check_commit_message(commit_message):
@@ -43,7 +43,10 @@ def check_commit_message(commit_message):
     # r'(chg|fix|new): ((dev|usr|pkg|test|doc):)? [A-Z].{0,43}(?!\.) (!('
     # 'refactor|minor|cosmetic|wip))(\n(\n.{0,72})*)?', commit_message
     message_match = match(
-        r'(chg|fix|new): .*', commit_message
+        r'(chg|fix|new):( (dev|usr|pkg|test|doc):)? [A-Z].{0,48}?\.'
+        r'( !(refactor|minor|cosmetic|wip))?$(\n(\n.{0,72})+)?(?!\n)',
+        commit_message,
+        MULTILINE
     )
 
     if message_match:
