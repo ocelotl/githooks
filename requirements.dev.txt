@@ -1,0 +1,6 @@
+flake8
+pep8-naming
+pep257
+flake8-pep257
+pytest
+ipdb==0.9.0

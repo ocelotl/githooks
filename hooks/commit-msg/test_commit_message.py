@@ -64,7 +64,7 @@ def test_audience():
     This test focuses in the AUDIENCE part of the commit message.
     """
     # Testing the right audiences:
-    commit_message = 'chg: dev: This is the commit message.'
+    commit_message = 'new: dev: This is the commit message.'
 
     assert check_commit_message(commit_message)
 
@@ -167,6 +167,12 @@ def test_rest():
     # Testing the wrong rest of the message messages:
     commit_message = (
         'chg: This is the commit message. !refactor\n'
+    )
+
+    assert not check_commit_message(commit_message)
+
+    commit_message = (
+        'chg: This is the commit message. !refactor\n\n#Something.'
     )
 
     assert not check_commit_message(commit_message)

@@ -38,13 +38,10 @@ def check_commit_message(commit_message):
     """
     # The commit message format is checked to verify that is complian with
     # gitchangelog:
-    # https://github.com/vaab/gitchangelog/blob/master/gitchangelog.rc.reference
-
-    # r'(chg|fix|new): ((dev|usr|pkg|test|doc):)? [A-Z].{0,43}(?!\.) (!('
-    # 'refactor|minor|cosmetic|wip))(\n(\n.{0,72})*)?', commit_message
+    # https://github.com/vaab/gitchangelog/blob/master/gitchangelog.rc.reference1
     message_match = match(
         r'(chg|fix|new):( (dev|usr|pkg|test|doc):)? [A-Z].{0,48}?\.'
-        r'( !(refactor|minor|cosmetic|wip))?$(\n(\n.{0,72})+)?(?!\n)',
+        r'( !(refactor|minor|cosmetic|wip))?$(\n(\n[^#].{0,71})+)?(?!\n)',
         commit_message,
         MULTILINE
     )
@@ -55,4 +52,4 @@ def check_commit_message(commit_message):
     return False
 
 
-__all__ = ['check_commit_message']
+__all__ = ('check_commit_message')
