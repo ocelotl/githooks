@@ -40,7 +40,7 @@ def check_commit_message(commit_message):
     # gitchangelog:
     # https://github.com/vaab/gitchangelog/blob/master/gitchangelog.rc.reference1
     message_match = match(
-        r'(chg|fix|new):( (dev|usr|pkg|test|doc):)? [A-Z].{0,48}?\.'
+        r'(chg|fix|new):( (dev|usr|pkg|test|doc):)? .{0,50}?'
         r'( !(refactor|minor|cosmetic|wip))?$(\n|\n(\n[^#].{0,71})+)?(?!\n)',
         commit_message,
         MULTILINE
